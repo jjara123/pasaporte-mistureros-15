@@ -1,0 +1,905 @@
+/* =====================================================
+   PASAPORTE NAZARENO
+   PÁGINA DE BIENVENIDA
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+:root {
+    --morado-base: #25082f;
+    --morado-profundo: #16021c;
+    --morado-card: #35103f;
+
+    --dorado: #d2ad50;
+    --dorado-claro: #efd477;
+
+    --blanco: #ffffff;
+
+    --texto: #f7f2f8;
+    --texto-suave: #d8cbdc;
+
+    --borde:
+        rgba(
+            210,
+            173,
+            80,
+            0.35
+        );
+}
+
+
+/* =====================================================
+   BODY
+   ===================================================== */
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            circle at top,
+            #4b165a 0%,
+            #2a0833 38%,
+            #18021e 75%,
+            #100015 100%
+        );
+
+    position: relative;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   IMAGEN DEL SEÑOR
+   ===================================================== */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    left: 0;
+    top: 80px;
+    bottom: 0;
+
+    width: 450px;
+
+    background-image:
+        url("img/senor-milagros.png");
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        left center;
+
+    background-size:
+        contain;
+
+    opacity: 0.20;
+
+    filter:
+        saturate(0.95)
+        brightness(0.90);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =====================================================
+   DEGRADADOS DECORATIVOS
+   ===================================================== */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 85% 12%,
+            rgba(210, 173, 80, 0.08),
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(122, 44, 145, 0.16),
+            transparent 28%
+        );
+
+    z-index: 0;
+}
+
+
+/* =====================================================
+   CONTENEDOR
+   ===================================================== */
+
+.inicio-container {
+    width:
+        min(
+            calc(100% - 28px),
+            660px
+        );
+
+    margin:
+        0 auto;
+
+    padding:
+        42px 0 70px;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero {
+    text-align:
+        center;
+
+    margin-bottom:
+        34px;
+}
+
+
+.logo-container {
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    margin-bottom:
+        12px;
+}
+
+
+.logo-hermandad {
+    width:
+        112px;
+
+    height:
+        112px;
+
+    object-fit:
+        contain;
+
+    object-position:
+        center;
+
+    border-radius:
+        50%;
+
+    padding:
+        4px;
+
+    background:
+        #ffffff;
+
+    border:
+        2px solid
+        var(--dorado);
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            0,
+            0,
+            0,
+            0.38
+        );
+}
+
+
+.eyebrow {
+    margin:
+        0;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        1.8px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--dorado-claro);
+
+    font-weight:
+        700;
+}
+
+
+.hero h1 {
+    margin:
+        14px 0 8px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            46px,
+            10vw,
+            72px
+        );
+
+    line-height:
+        0.90;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--blanco);
+}
+
+
+.hero h1 span {
+    display:
+        block;
+
+    color:
+        var(--dorado-claro);
+}
+
+
+.ornamento {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    margin:
+        18px auto;
+}
+
+
+.ornamento span {
+    width:
+        62px;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--dorado)
+        );
+}
+
+
+.ornamento span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            var(--dorado),
+            transparent
+        );
+}
+
+
+.ornamento strong {
+    color:
+        var(--dorado-claro);
+
+    font-size:
+        14px;
+}
+
+
+.descripcion {
+    max-width:
+        520px;
+
+    margin:
+        0 auto;
+
+    font-size:
+        16px;
+
+    line-height:
+        1.7;
+
+    color:
+        var(--texto-suave);
+}
+
+
+/* =====================================================
+   PANEL
+   ===================================================== */
+
+.panel {
+    padding:
+        26px;
+
+    border-radius:
+        26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                61,
+                17,
+                72,
+                0.96
+            ),
+            rgba(
+                29,
+                4,
+                36,
+                0.98
+            )
+        );
+
+    border:
+        1px solid
+        var(--borde);
+
+    box-shadow:
+        0 18px 44px
+        rgba(
+            0,
+            0,
+            0,
+            0.28
+        );
+}
+
+
+.panel-kicker {
+    margin:
+        0 0 4px;
+
+    text-align:
+        center;
+
+    color:
+        var(--dorado);
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        1.5px;
+
+    text-transform:
+        uppercase;
+
+    font-weight:
+        700;
+}
+
+
+.panel h2 {
+    margin:
+        0 0 24px;
+
+    text-align:
+        center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        30px;
+
+    color:
+        var(--blanco);
+}
+
+
+/* =====================================================
+   PASOS
+   ===================================================== */
+
+.pasos {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        18px;
+}
+
+
+.paso {
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        15px;
+
+    padding:
+        14px 0;
+}
+
+
+.paso +
+.paso {
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+}
+
+
+.paso-numero {
+    flex-shrink:
+        0;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--dorado),
+            var(--dorado-claro)
+        );
+
+    color:
+        var(--morado-profundo);
+
+    font-weight:
+        900;
+}
+
+
+.paso h3 {
+    margin:
+        0 0 4px;
+
+    font-size:
+        17px;
+
+    color:
+        var(--dorado-claro);
+}
+
+
+.paso p {
+    margin:
+        0;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.55;
+
+    color:
+        var(--texto-suave);
+}
+
+
+/* =====================================================
+   PROGRESO PREVIO
+   ===================================================== */
+
+.progreso-previo {
+    margin-top:
+        22px;
+
+    padding:
+        20px;
+
+    text-align:
+        center;
+
+    border-radius:
+        20px;
+
+    border:
+        1px solid
+        var(--dorado);
+
+    background:
+        rgba(
+            210,
+            173,
+            80,
+            0.06
+        );
+}
+
+
+.progreso-previo p {
+    margin:
+        0 0 6px;
+
+    color:
+        var(--dorado-claro);
+
+    font-size:
+        12px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+    font-weight:
+        700;
+}
+
+
+.progreso-previo strong {
+    display:
+        block;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        40px;
+
+    color:
+        var(--blanco);
+}
+
+
+.progreso-previo span {
+    display:
+        block;
+
+    margin-top:
+        6px;
+
+    font-size:
+        14px;
+
+    color:
+        var(--texto-suave);
+}
+
+
+/* =====================================================
+   ACCIÓN
+   ===================================================== */
+
+.accion {
+    margin-top:
+        26px;
+
+    text-align:
+        center;
+}
+
+
+.btn-iniciar {
+    width:
+        100%;
+
+    min-height:
+        58px;
+
+    padding:
+        16px 20px;
+
+    border:
+        1px solid
+        var(--dorado-claro);
+
+    border-radius:
+        16px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--dorado),
+            var(--dorado-claro)
+        );
+
+    color:
+        var(--morado-profundo);
+
+    font-size:
+        16px;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 10px 24px
+        rgba(
+            210,
+            173,
+            80,
+            0.18
+        );
+
+    transition:
+        transform
+        0.15s
+        ease;
+}
+
+
+.btn-iniciar:active {
+    transform:
+        scale(
+            0.98
+        );
+}
+
+
+.nota {
+    margin:
+        12px 0 0;
+
+    font-size:
+        12px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.52
+        );
+}
+
+
+/* =====================================================
+   FRASE FINAL
+   ===================================================== */
+
+.frase {
+    margin-top:
+        34px;
+
+    text-align:
+        center;
+}
+
+
+.cruz {
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--dorado);
+}
+
+
+.frase p {
+    margin:
+        0;
+
+    color:
+        var(--texto-suave);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-style:
+        italic;
+
+    font-size:
+        14px;
+}
+
+
+/* =====================================================
+   UTILIDADES
+   ===================================================== */
+
+.oculto {
+    display:
+        none
+        !important;
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media
+(max-width: 800px) {
+
+    body::before {
+        width:
+            330px;
+
+        left:
+            -80px;
+
+        opacity:
+            0.13;
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media
+(max-width: 430px) {
+
+    .inicio-container {
+        width:
+            calc(
+                100% - 18px
+            );
+
+        padding-top:
+            28px;
+    }
+
+
+    body::before {
+        width:
+            270px;
+
+        left:
+            -115px;
+
+        top:
+            140px;
+
+        opacity:
+            0.085;
+
+        background-position:
+            left top;
+    }
+
+
+    .logo-hermandad {
+        width:
+            86px;
+
+        height:
+            86px;
+    }
+
+
+    .eyebrow {
+        font-size:
+            9px;
+
+        letter-spacing:
+            1.2px;
+    }
+
+
+    .hero h1 {
+        font-size:
+            46px;
+    }
+
+
+    .descripcion {
+        font-size:
+            14px;
+    }
+
+
+    .panel {
+        padding:
+            20px 17px;
+
+        border-radius:
+            22px;
+    }
+
+
+    .panel h2 {
+        font-size:
+            27px;
+    }
+
+
+    .paso {
+        gap:
+            12px;
+    }
+
+
+    .paso-numero {
+        width:
+            38px;
+
+        height:
+            38px;
+    }
+
+
+    .paso h3 {
+        font-size:
+            16px;
+    }
+
+
+    .paso p {
+        font-size:
+            13px;
+    }
+
+
+    .btn-iniciar {
+        min-height:
+            56px;
+    }
+}

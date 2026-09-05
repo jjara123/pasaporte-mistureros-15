@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasaporte Misturero | 15.ª Cuadrilla</title>
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+    <main class="inicio-container">
+        <section class="hero">
+            <div class="logo-container">
+                <img
+                    src="img/insignia_15.png"
+                    alt="Insignia de la 15.ª Cuadrilla - Mistureros"
+                    class="logo-hermandad"
+                >
+            </div>
+
+            <p class="eyebrow">15.ª Cuadrilla · Mistureros</p>
+
+            <h1>
+                Pasaporte
+                <span>Misturero</span>
+            </h1>
+
+            <div class="ornamento">
+                <span></span>
+                <strong>✦</strong>
+                <span></span>
+            </div>
+
+            <p id="mensaje-bienvenida" class="descripcion">
+                Recorre los cuatro puntos de la exposición de la 15.ª Cuadrilla,
+                descubre contenido complementario y completa tu Pasaporte Misturero.
+            </p>
+        </section>
+
+        <section class="panel">
+            <p class="panel-kicker">Vive la experiencia</p>
+            <h2>¿Cómo funciona?</h2>
+
+            <div class="pasos">
+                <article class="paso">
+                    <div class="paso-numero">1</div>
+                    <div>
+                        <h3>Recorre</h3>
+                        <p>Visita cada uno de los cuatro puntos preparados por la 15.ª Cuadrilla.</p>
+                    </div>
+                </article>
+
+                <article class="paso">
+                    <div class="paso-numero">2</div>
+                    <div>
+                        <h3>Escanea</h3>
+                        <p>Al terminar la explicación de cada punto, escanea el código QR correspondiente.</p>
+                    </div>
+                </article>
+
+                <article class="paso">
+                    <div class="paso-numero">3</div>
+                    <div>
+                        <h3>Descubre</h3>
+                        <p>El QR abrirá una imagen y textos con información complementaria del tema visitado.</p>
+                    </div>
+                </article>
+
+                <article class="paso">
+                    <div class="paso-numero">4</div>
+                    <div>
+                        <h3>Completa</h3>
+                        <p>Cada QR marcará automáticamente ese punto en tu pasaporte hasta llegar a 4 de 4.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="progreso-previo" class="progreso-previo oculto">
+            <p>Tu recorrido ya está en marcha</p>
+            <strong id="progreso-numero">0 / 4</strong>
+            <span id="progreso-texto"></span>
+        </section>
+
+        <section class="accion">
+            <button id="btn-iniciar" class="btn-iniciar" type="button">
+                Comenzar mi recorrido
+            </button>
+            <p class="nota">Tu progreso se guardará en este dispositivo.</p>
+        </section>
+
+        <section class="frase">
+            <span class="cruz">✦</span>
+            <p>Fe · Tradición · Servicio</p>
+        </section>
+    </main>
+
+    <script src="inicio.js"></script>
+</body>
+</html>

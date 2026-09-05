@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación | Pasaporte Misturero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container estacion-page">
+        <nav class="top-nav estacion-nav">
+            <a href="pasaporte.html" class="btn-volver-inicio">← Mi pasaporte</a>
+        </nav>
+
+        <header class="header estacion-header">
+            <div class="logo-hermandad-container">
+                <img
+                    src="img/insignia_15.png"
+                    alt="Insignia de la 15.ª Cuadrilla - Mistureros"
+                    class="logo-hermandad"
+                >
+            </div>
+
+            <p class="eyebrow">15.ª Cuadrilla · Mistureros</p>
+            <p id="estacion-kicker" class="estacion-kicker">Punto 1 de 4</p>
+            <h1 id="estacion-titulo" class="titulo-estacion">Contenido complementario</h1>
+
+            <div class="ornamento">
+                <span></span>
+                <strong>✦</strong>
+                <span></span>
+            </div>
+
+            <p id="estacion-subtitulo" class="descripcion"></p>
+        </header>
+
+        <section id="registro-confirmado" class="registro-confirmado">
+            <span class="registro-check">✓</span>
+            <div>
+                <strong id="registro-titulo">Punto registrado</strong>
+                <p id="registro-texto">Este punto ya forma parte de tu Pasaporte Misturero.</p>
+            </div>
+        </section>
+
+        <article class="contenido-estacion">
+            <div class="imagen-estacion-wrap">
+                <img id="estacion-imagen" class="imagen-estacion" src="" alt="">
+                <div id="imagen-fallback" class="imagen-fallback oculto">
+                    <img src="img/insignia_15.png" alt="Insignia de la 15.ª Cuadrilla">
+                    <p>Agrega aquí la imagen complementaria de este punto.</p>
+                </div>
+            </div>
+
+            <div class="texto-estacion">
+                <p id="estacion-intro" class="estacion-intro"></p>
+                <div id="estacion-parrafos"></div>
+                <div id="contenido-especial"></div>
+            </div>
+        </article>
+
+        <section class="card-progreso estacion-progreso">
+            <span class="label">Tu avance en la exposición</span>
+            <div class="estacion-progress-row">
+                <strong id="estacion-progreso-numero" class="progress-number">1 / 4</strong>
+                <span id="estacion-progreso-porcentaje" class="porcentaje">25%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="estacion-progress-fill" class="progress-fill"></div>
+            </div>
+        </section>
+
+        <section class="estacion-acciones">
+            <a href="pasaporte.html" class="btn-primary btn-link">Ver mi Pasaporte</a>
+        </section>
+
+        <section class="frase-estacion">
+            <span>✦</span>
+            <p>Fe · Tradición · Servicio</p>
+        </section>
+    </main>
+
+    <script src="estacion.js"></script>
+</body>
+</html>
