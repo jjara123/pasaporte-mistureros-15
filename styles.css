@@ -1104,7 +1104,7 @@ button {
     }
 }
 /* =====================================================
-   LA RUTA DEL MISTURERO - AJUSTES DÉCIMA QUINTA CUADRILLA
+   PASAPORTE MISTURERO - AJUSTES 15.ª CUADRILLA
    ===================================================== */
 
 .mensaje-estacion-numero {
@@ -1353,6 +1353,69 @@ button {
     line-height: 1.75;
 }
 
+
+/* Estación 2: fotografía de la labor del Misturero completa */
+.imagen-estacion.imagen-labor-misturero {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.misturero-contenido {
+    margin-top: 28px;
+    display: grid;
+    gap: 26px;
+}
+
+.misturero-seccion {
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.misturero-seccion h3 {
+    margin: 0 0 12px;
+    color: var(--dorado-claro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.misturero-seccion p {
+    margin: 0 0 16px;
+    color: var(--texto-suave);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.misturero-imagen-secundaria {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(210,173,80,0.28);
+    border-radius: 20px;
+    background: #16021c;
+}
+
+.misturero-imagen-secundaria img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.misturero-lista {
+    margin: 8px 0 0;
+    padding-left: 22px;
+    color: var(--texto-suave);
+}
+
+.misturero-lista li {
+    margin: 8px 0;
+    line-height: 1.55;
+}
+
 .contenido-especial-kicker {
     margin: 0 0 4px;
     color: var(--dorado);
@@ -1384,6 +1447,12 @@ button {
 
 .timeline-item strong {
     color: var(--dorado-claro);
+}
+
+.timeline-item > span > strong {
+    display: inline-block;
+    margin-bottom: 3px;
+    font-weight: 800;
 }
 
 .timeline-item span {
