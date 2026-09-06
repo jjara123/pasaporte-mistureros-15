@@ -1639,16 +1639,26 @@ button {
     object-position: center center;
 }
 
+/* La foto grupal aprovecha su formato horizontal sin hacerla gigante */
+.guardadas-foto--panoramica {
+    grid-column: span 2;
+}
+
+.guardadas-foto--panoramica img {
+    height: 280px;
+}
+
 @media (max-width: 650px) {
     .guardadas-galeria {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .guardadas-foto:last-child {
+    .guardadas-foto--panoramica {
         grid-column: 1 / -1;
     }
 
-    .guardadas-foto img {
+    .guardadas-foto img,
+    .guardadas-foto--panoramica img {
         height: 240px;
     }
 }
@@ -1662,7 +1672,7 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .guardadas-foto:last-child {
+    .guardadas-foto--panoramica {
         grid-column: auto;
     }
 
@@ -1670,7 +1680,8 @@ button {
         min-height: 0;
     }
 
-    .guardadas-foto img {
+    .guardadas-foto img,
+    .guardadas-foto--panoramica img {
         height: auto;
         max-height: 330px;
     }

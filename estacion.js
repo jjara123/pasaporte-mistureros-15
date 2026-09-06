@@ -369,12 +369,25 @@ function renderizarContenidoEspecial(tipo) {
             {
                 src: "img/estaciones/guardadas-4.jpg",
                 alt: "Banderín de los Mistureros durante una Guardada"
+            },
+            {
+                src: "img/estaciones/guardadas-5.jpg",
+                alt: "Detalle del anda adornada durante una Guardada de la 15.ª Cuadrilla"
+            },
+            {
+                src: "img/estaciones/guardadas-6.jpg",
+                alt: "Hermanos de la 15.ª Cuadrilla reunidos durante la Guardada",
+                panoramica: true
             }
         ];
 
         imagenes.forEach(item => {
             const figure = document.createElement("figure");
             figure.className = "guardadas-foto";
+
+            if (item.panoramica) {
+                figure.classList.add("guardadas-foto--panoramica");
+            }
 
             const img = document.createElement("img");
             img.src = item.src;
