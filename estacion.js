@@ -97,13 +97,12 @@ const CONTENIDOS = {
         kicker: "Punto 4 de 4",
         titulo: "Hermanos Notables",
         subtitulo: "Huellas en la 15.ª Cuadrilla",
-        imagen: "img/estaciones/hermanos-destacados.jpg",
-        alt: "Fotografía complementaria de hermanos destacados de la 15.ª Cuadrilla",
+        imagen: "img/estaciones/hermano-notable-adolfo.jpg",
+        alt: "Adolfo Castellano Carrillo, hermano notable de la 15.ª Cuadrilla",
         intro:
-            "La historia de una cuadrilla también se construye con las personas que sirvieron, acompañaron y dejaron una huella especial en sus hermanos.",
+            "Es sabido que nuestra cuadrilla, ha tenido grandes hitos históricos.",
         parrafos: [
-            "En este espacio podrás presentar fotografías y pequeñas reseñas de los hermanos que la cuadrilla haya elegido destacar durante la exposición.",
-            "Los nombres y reseñas que aparecen debajo son espacios preparados para que coloques la información definitiva."
+            "La labor de Mistureros, llevada a cabo por diversos hermanos, ha sido fundamental en la organización de la procesión del Señor de los Milagros."
         ],
         tipoEspecial: "hermanos"
     }
@@ -208,6 +207,13 @@ function renderizarContenido(estacionId, yaRegistrada) {
         imagen.classList.add("imagen-guardadas-principal");
     } else {
         imagen.classList.remove("imagen-guardadas-principal");
+    }
+
+    // En la estación 4 mostramos la imagen completa, centrada y sin recortarla.
+    if (estacionId === 4) {
+        imagen.classList.add("imagen-hermanos-principal");
+    } else {
+        imagen.classList.remove("imagen-hermanos-principal");
     }
 
     imagen.addEventListener("error", () => {
@@ -406,21 +412,57 @@ function renderizarContenidoEspecial(tipo) {
 
     if (tipo === "hermanos") {
         const bloque = document.createElement("div");
-        bloque.className = "hermanos-grid";
+        bloque.className = "hermanos-notables-contenido";
 
-        for (let i = 1; i <= 3; i++) {
-            const card = document.createElement("article");
-            card.className = "hermano-card";
-            card.innerHTML = `
-                <div class="hermano-avatar">${i}</div>
+        const encabezado = document.createElement("section");
+        encabezado.className = "hermanos-notables-intro";
+        encabezado.innerHTML = `
+            <p class="contenido-especial-kicker">Legado y servicio</p>
+            <h3>Hermanos que dejaron huella</h3>
+            <p>
+                En nuestras filas, los hermanos Jose Achong Carrion, o más conocido como “el chino Pepe”, fue Patrón de Andas, mientras que nuestro hermano Juan Maldonado Ganoza, fue Jefe de Mistureros, inclusive reconocido con la Orden Nazarena, en el grado de Comendador, el 1 de noviembre del 2002, siendo la última vez que subió al anda, para realizar su labor.
+            </p>
+        `;
+
+        const tarjetas = document.createElement("div");
+        tarjetas.className = "hermanos-notables-grid";
+
+        const achong = document.createElement("article");
+        achong.className = "hermano-notable-card";
+        achong.innerHTML = `
+            <div class="hermano-notable-cabecera">
+                <span class="hermano-notable-numero">01</span>
                 <div>
-                    <h3>Hermano destacado ${i}</h3>
-                    <p>Reemplaza este texto con su nombre, periodo, cargo o aporte y una breve reseña.</p>
+                    <p class="hermano-notable-cargo">Patrón de Andas</p>
+                    <h3>Jose Achong Carrión</h3>
+                    <span class="hermano-notable-apodo">“El chino Pepe”</span>
                 </div>
-            `;
-            bloque.appendChild(card);
-        }
+            </div>
+            <p>
+                El nombre de Jose Achong Carrión, no solo es conocido en el ámbito de la cuadrilla y la hermandad, sino también ha trascendido estos espacios. Además de ser Patrón de Andas, fue utilero del Club Alianza Lima, al igual que de la Selección Nacional. Y es precisamente a él, a quien se le debe, el uso (ahora hecho tradición) de la camiseta blaquimorada, que viste el Club Alianza Lima, durante todos los octubres.
+            </p>
+        `;
 
+        const maldonado = document.createElement("article");
+        maldonado.className = "hermano-notable-card";
+        maldonado.innerHTML = `
+            <div class="hermano-notable-cabecera">
+                <span class="hermano-notable-numero">02</span>
+                <div>
+                    <p class="hermano-notable-cargo">Jefe de Mistureros</p>
+                    <h3>Juan Maldonado Ganoza</h3>
+                    <span class="hermano-notable-apodo">Orden Nazarena · Comendador</span>
+                </div>
+            </div>
+            <p>
+                Fue Jefe de Mistureros, inclusive reconocido con la Orden Nazarena, en el grado de Comendador, el 1 de noviembre del 2002, siendo la última vez que subió al anda, para realizar su labor.
+            </p>
+        `;
+
+        tarjetas.appendChild(achong);
+        tarjetas.appendChild(maldonado);
+        bloque.appendChild(encabezado);
+        bloque.appendChild(tarjetas);
         contenedor.appendChild(bloque);
     }
 }

@@ -1686,3 +1686,134 @@ button {
         max-height: 330px;
     }
 }
+
+
+/* =====================================================
+   ESTACIÓN 4 - HERMANOS NOTABLES
+   ===================================================== */
+
+.imagen-estacion.imagen-hermanos-principal {
+    width: 100%;
+    height: auto;
+    max-height: 560px;
+    display: block;
+    object-fit: contain;
+    object-position: center center;
+    background: #16021c;
+}
+
+.hermanos-notables-contenido {
+    margin-top: 28px;
+    display: grid;
+    gap: 24px;
+}
+
+.hermanos-notables-intro {
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.hermanos-notables-intro h3 {
+    margin: 0 0 12px;
+    color: var(--dorado-claro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+.hermanos-notables-intro p:not(.contenido-especial-kicker) {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.hermanos-notables-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.hermano-notable-card {
+    padding: 20px;
+    border: 1px solid rgba(210,173,80,0.28);
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        rgba(61,17,72,0.82),
+        rgba(29,4,36,0.90)
+    );
+}
+
+.hermano-notable-cabecera {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 14px;
+}
+
+.hermano-notable-numero {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--dorado), var(--dorado-claro));
+    color: var(--morado-profundo);
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.hermano-notable-cargo {
+    margin: 0 0 3px;
+    color: var(--dorado);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hermano-notable-card h3 {
+    margin: 0;
+    color: var(--dorado-claro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.hermano-notable-apodo {
+    display: block;
+    margin-top: 3px;
+    color: var(--texto-suave);
+    font-size: 12px;
+    font-style: italic;
+}
+
+.hermano-notable-card > p {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+@media (max-width: 650px) {
+    .hermanos-notables-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 430px) {
+    .imagen-estacion.imagen-hermanos-principal {
+        max-height: 430px;
+    }
+
+    .hermano-notable-card {
+        padding: 17px;
+    }
+
+    .hermanos-notables-intro h3 {
+        font-size: 21px;
+    }
+}
