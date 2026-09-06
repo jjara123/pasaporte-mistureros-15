@@ -84,14 +84,14 @@ const CONTENIDOS = {
         kicker: "Punto 3 de 4",
         titulo: "Las Guardadas",
         subtitulo: "Tradición y preparación",
-        imagen: "img/senor-milagros.png",
-        alt: "Imagen del Señor de los Milagros",
+        imagen: "img/estaciones/guardadas-1.jpg",
+        alt: "Imagen de una Guardada de la 15.ª Cuadrilla",
         intro:
-            "La imagen del Señor de los Milagros ocupa el centro de esta experiencia y recuerda el motivo de fe que reúne a los hermanos y devotos.",
+            "Nuestra cuadrilla está formada por cinco (5) sectores de carguío.",
         parrafos: [
-            "En este punto puedes colocar la breve descripción que acompañará la imagen durante la exposición, resaltando su significado dentro de la devoción y su vínculo con la vida de la cuadrilla.",
-            "La intención de este contenido es complementar la explicación presencial sin reemplazarla, permitiendo que el visitante conserve un recuerdo digital del punto visitado."
-        ]
+            "Para cada Guardada se han diseñado diversos aditamentos distintivos que adornan el anda, siendo los más representativos los banderines."
+        ],
+        tipoEspecial: "guardadas"
     },
     4: {
         kicker: "Punto 4 de 4",
@@ -203,13 +203,11 @@ function renderizarContenido(estacionId, yaRegistrada) {
         imagen.classList.remove("imagen-labor-misturero");
     }
 
-    // En la estación 3 mostramos la imagen completa, centrada y con aire alrededor.
+    // En la estación 3 mostramos una fotografía principal de la Guardada sin recortarla.
     if (estacionId === 3) {
-        imagen.classList.add("imagen-completa");
-        document.querySelector(".imagen-estacion-wrap")?.classList.add("imagen-completa-wrap");
+        imagen.classList.add("imagen-guardadas-principal");
     } else {
-        imagen.classList.remove("imagen-completa");
-        document.querySelector(".imagen-estacion-wrap")?.classList.remove("imagen-completa-wrap");
+        imagen.classList.remove("imagen-guardadas-principal");
     }
 
     imagen.addEventListener("error", () => {
@@ -338,6 +336,60 @@ function renderizarContenidoEspecial(tipo) {
         bloque.appendChild(organizacion);
         contenedor.appendChild(bloque);
     }
+
+    if (tipo === "guardadas") {
+        const bloque = document.createElement("div");
+        bloque.className = "guardadas-contenido";
+
+        const texto = document.createElement("section");
+        texto.className = "guardadas-seccion";
+        texto.innerHTML = `
+            <p class="contenido-especial-kicker">Una tradición de nuestra cuadrilla</p>
+            <h3>Los cinco sectores y sus distintivos</h3>
+            <p>
+                En particular, nuestra cuadrilla está formada por <strong>cinco (5) sectores de carguío</strong>, tal como pueden apreciar en la fotografía de la Guardada del 2012.
+            </p>
+            <p>
+                Para cada Guardada se han diseñado diversos aditamentos distintivos que adornan el anda, siendo los más representativos los <strong>banderines</strong>.
+            </p>
+        `;
+
+        const galeria = document.createElement("div");
+        galeria.className = "guardadas-galeria";
+
+        const imagenes = [
+            {
+                src: "img/estaciones/guardadas-2.jpg",
+                alt: "Anda durante una Guardada de la 15.ª Cuadrilla"
+            },
+            {
+                src: "img/estaciones/guardadas-3.jpg",
+                alt: "Detalle conmemorativo de una Guardada de la 15.ª Cuadrilla"
+            },
+            {
+                src: "img/estaciones/guardadas-4.jpg",
+                alt: "Banderín de los Mistureros durante una Guardada"
+            }
+        ];
+
+        imagenes.forEach(item => {
+            const figure = document.createElement("figure");
+            figure.className = "guardadas-foto";
+
+            const img = document.createElement("img");
+            img.src = item.src;
+            img.alt = item.alt;
+            img.loading = "lazy";
+
+            figure.appendChild(img);
+            galeria.appendChild(figure);
+        });
+
+        bloque.appendChild(texto);
+        bloque.appendChild(galeria);
+        contenedor.appendChild(bloque);
+    }
+
 
     if (tipo === "hermanos") {
         const bloque = document.createElement("div");
