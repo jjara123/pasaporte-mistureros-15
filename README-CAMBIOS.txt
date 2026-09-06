@@ -1,12 +1,12 @@
-PASAPORTE MISTURERO - 15.ª CUADRILLA
+LA RUTA DEL MISTURERO - DÉCIMA QUINTA CUADRILLA
 ====================================
 
 ARCHIVOS PRINCIPALES
 - index.html        : portada
 - inicio.css        : diseño de portada (se mantiene el estilo anterior)
 - inicio.js         : progreso 4/4
-- pasaporte.html    : pasaporte con los 4 puntos
-- styles.css        : diseño del pasaporte + página de contenido
+- pasaporte.html    : ruta con los 4 puntos
+- styles.css        : diseño de la ruta + página de contenido
 - app.js            : progreso, checks, scanner QR y tarjeta final
 - estacion.html     : página que abre cada QR
 - estacion.js       : registra el punto y muestra el contenido complementario

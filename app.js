@@ -1,5 +1,5 @@
 /* =====================================================
-   PASAPORTE MISTURERO - 15.ª CUADRILLA
+   LA RUTA DEL MISTURERO - DÉCIMA QUINTA CUADRILLA
    ===================================================== */
 
 const TOTAL_ESTACIONES = 4;
@@ -8,22 +8,22 @@ const STORAGE_KEY = "pasaporteMisturero15";
 const ESTACIONES = [
     {
         id: 1,
-        titulo: "Nuestra historia",
+        titulo: "Fundación",
         subtitulo: "Línea de tiempo"
     },
     {
         id: 2,
-        titulo: "Labor de los Mistureros",
+        titulo: "La labor del Misturero",
         subtitulo: "Servicio y tradición"
     },
     {
         id: 3,
-        titulo: "El Señor de los Milagros",
-        subtitulo: "Imagen y devoción"
+        titulo: "Las Guardadas",
+        subtitulo: "Tradición y preparación"
     },
     {
         id: 4,
-        titulo: "Hermanos destacados",
+        titulo: "Hermanos Notables",
         subtitulo: "Huellas en la 15.ª Cuadrilla"
     }
 ];
@@ -235,7 +235,7 @@ function actualizarProgreso() {
 function mostrarFelicitaciones() {
     document.getElementById("felicitaciones").classList.remove("oculto");
     document.getElementById("mensaje-principal").textContent =
-        "¡Has completado todo el Pasaporte Misturero!";
+        "¡Has completado La ruta del Misturero!";
     generarTarjetaLogro();
 }
 
@@ -276,34 +276,34 @@ async function generarTarjetaLogro() {
     try {
         const insignia = await cargarImagen("img/insignia_15.png");
 
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(ancho / 2, 172, 92, 0, Math.PI * 2);
-        ctx.clip();
+        const maxAncho = 184;
+        const maxAlto = 184;
+        const escala = Math.min(maxAncho / insignia.width, maxAlto / insignia.height);
+        const imgAncho = insignia.width * escala;
+        const imgAlto = insignia.height * escala;
 
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(ancho / 2 - 92, 80, 184, 184);
-        ctx.drawImage(insignia, ancho / 2 - 92, 80, 184, 184);
-        ctx.restore();
-
-        ctx.beginPath();
-        ctx.arc(ancho / 2, 172, 92, 0, Math.PI * 2);
-        ctx.strokeStyle = "#d7b66a";
-        ctx.lineWidth = 5;
-        ctx.stroke();
+        ctx.drawImage(
+            insignia,
+            ancho / 2 - imgAncho / 2,
+            80 + (maxAlto - imgAlto) / 2,
+            imgAncho,
+            imgAlto
+        );
     } catch {}
 
     ctx.textAlign = "center";
     ctx.fillStyle = "#ffffff";
     ctx.font = "bold 27px Georgia";
-    ctx.fillText("15.ª CUADRILLA", ancho / 2, 300);
-    ctx.fillText("MISTUREROS", ancho / 2, 337);
+    ctx.font = "bold 23px Georgia";
+    ctx.fillText("HSMN - DÉCIMA QUINTA CUADRILLA", ancho / 2, 300);
+    ctx.fillText("LOS MISTUREROS DEL SEÑOR", ancho / 2, 337);
 
-    ctx.font = "bold 84px Georgia";
-    ctx.fillText("PASAPORTE", ancho / 2, 455);
+    ctx.font = "bold 82px Georgia";
+    ctx.fillText("LA RUTA", ancho / 2, 455);
 
     ctx.fillStyle = "#e3bd58";
-    ctx.fillText("MISTURERO", ancho / 2, 545);
+    ctx.font = "bold 72px Georgia";
+    ctx.fillText("DEL MISTURERO", ancho / 2, 545);
 
     ctx.beginPath();
     ctx.arc(ancho / 2, 690, 58, 0, Math.PI * 2);
@@ -332,7 +332,7 @@ async function generarTarjetaLogro() {
 
     ctx.fillStyle = "#ffffff";
     ctx.font = "bold 22px Georgia";
-    ctx.fillText("#PasaporteMisturero", ancho / 2, 1230);
+    ctx.fillText("#RutaDelMisturero", ancho / 2, 1230);
 
     ctx.fillStyle = "#d7b66a";
     ctx.font = "bold 25px Georgia";
@@ -391,7 +391,7 @@ async function codigoDetectado(textoQR) {
 
     if (!estacion) {
         mostrarMensajeScanner(
-            "Este QR no pertenece al Pasaporte Misturero.",
+            "Este QR no pertenece a La ruta del Misturero.",
             true
         );
         scannerProcesando = false;
@@ -469,7 +469,7 @@ async function compartirRecorrido() {
 
         const archivo = new File(
             [blob],
-            "pasaporte-misturero.png",
+            "ruta-del-misturero.png",
             { type: "image/png" }
         );
 
@@ -480,7 +480,7 @@ async function compartirRecorrido() {
         ) {
             await navigator.share({
                 files: [archivo],
-                text: "¡Completé el Pasaporte Misturero de la 15.ª Cuadrilla!"
+                text: "¡Completé La ruta del Misturero de la Décima Quinta Cuadrilla!"
             });
             return;
         }
@@ -492,7 +492,7 @@ async function compartirRecorrido() {
 async function guardarRecuerdo() {
     const canvas = document.getElementById("canvas-logro");
     const enlace = document.createElement("a");
-    enlace.download = "pasaporte-misturero.png";
+    enlace.download = "ruta-del-misturero.png";
     enlace.href = canvas.toDataURL("image/png");
     enlace.click();
 }

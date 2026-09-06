@@ -1,5 +1,5 @@
 /* =====================================================
-   PASAPORTE MISTURERO - 15.ª CUADRILLA
+   LA RUTA DEL MISTURERO - DÉCIMA QUINTA CUADRILLA
    PÁGINA DE INICIO
    ===================================================== */
 
@@ -55,13 +55,10 @@ function actualizarBienvenida(progreso) {
     const numero = document.getElementById("progreso-numero");
     const texto = document.getElementById("progreso-texto");
 
-    mensaje.textContent =
-        "¡Bienvenido nuevamente! Continúa tu recorrido por la exposición de la 15.ª Cuadrilla.";
-
     numero.textContent = `${cantidad} / ${TOTAL_VISITAS}`;
 
     if (cantidad === TOTAL_VISITAS) {
-        texto.textContent = "Tu Pasaporte Misturero está completo.";
+        texto.textContent = "Tu ruta del Misturero está completa.";
     } else {
         const faltantes = TOTAL_VISITAS - cantidad;
         texto.textContent =
@@ -79,7 +76,7 @@ function configurarBoton(progreso) {
     if (progreso.length > 0) {
         boton.textContent =
             progreso.length === TOTAL_VISITAS
-                ? "Ver mi Pasaporte completo"
+                ? "Ver mi ruta completa"
                 : "Continuar mi recorrido";
     }
 

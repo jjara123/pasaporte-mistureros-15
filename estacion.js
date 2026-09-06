@@ -8,8 +8,8 @@ const TOTAL_ESTACIONES = 4;
 const CONTENIDOS = {
     1: {
         kicker: "Punto 1 de 4",
-        titulo: "Nuestra historia",
-        subtitulo: "Línea de tiempo de la 15.ª Cuadrilla",
+        titulo: "Fundación",
+        subtitulo: "Línea de tiempo",
         imagen: "img/estaciones/linea-tiempo.jpg",
         alt: "Imagen complementaria de la línea de tiempo de la 15.ª Cuadrilla",
         intro:
@@ -22,8 +22,8 @@ const CONTENIDOS = {
     },
     2: {
         kicker: "Punto 2 de 4",
-        titulo: "Labor de los Mistureros",
-        subtitulo: "Servicio, tradición y participación procesional",
+        titulo: "La labor del Misturero",
+        subtitulo: "Servicio y tradición",
         imagen: "img/estaciones/labor-mistureros.jpg",
         alt: "Imagen complementaria sobre la labor de los Mistureros",
         intro:
@@ -35,8 +35,8 @@ const CONTENIDOS = {
     },
     3: {
         kicker: "Punto 3 de 4",
-        titulo: "El Señor de los Milagros",
-        subtitulo: "La imagen que inspira nuestra fe y nuestro servicio",
+        titulo: "Las Guardadas",
+        subtitulo: "Tradición y preparación",
         imagen: "img/senor-milagros.png",
         alt: "Imagen del Señor de los Milagros",
         intro:
@@ -48,8 +48,8 @@ const CONTENIDOS = {
     },
     4: {
         kicker: "Punto 4 de 4",
-        titulo: "Hermanos destacados",
-        subtitulo: "Personas que dejaron huella en la 15.ª Cuadrilla",
+        titulo: "Hermanos Notables",
+        subtitulo: "Huellas en la 15.ª Cuadrilla",
         imagen: "img/estaciones/hermanos-destacados.jpg",
         alt: "Fotografía complementaria de hermanos destacados de la 15.ª Cuadrilla",
         intro:
@@ -137,7 +137,7 @@ function registrarEstacion(estacionId) {
 function renderizarContenido(estacionId, yaRegistrada) {
     const contenido = CONTENIDOS[estacionId];
 
-    document.title = `${contenido.titulo} | Pasaporte Misturero`;
+    document.title = `${contenido.titulo} | La ruta del Misturero`;
     document.getElementById("estacion-kicker").textContent = contenido.kicker;
     document.getElementById("estacion-titulo").textContent = contenido.titulo;
     document.getElementById("estacion-subtitulo").textContent = contenido.subtitulo;
@@ -182,7 +182,7 @@ function renderizarContenido(estacionId, yaRegistrada) {
     } else {
         registroTitulo.textContent = "¡Punto registrado!";
         registroTexto.textContent =
-            "Este punto acaba de marcarse con un check en tu Pasaporte Misturero.";
+            "Este punto acaba de marcarse con un check en tu Ruta del Misturero.";
     }
 
     renderizarContenidoEspecial(contenido.tipoEspecial);
@@ -242,7 +242,7 @@ function actualizarProgreso() {
 }
 
 function mostrarError() {
-    document.getElementById("estacion-kicker").textContent = "Pasaporte Misturero";
+    document.getElementById("estacion-kicker").textContent = "La ruta del Misturero";
     document.getElementById("estacion-titulo").textContent = "Punto no encontrado";
     document.getElementById("estacion-subtitulo").textContent =
         "El enlace escaneado no corresponde a uno de los cuatro puntos de la exposición.";

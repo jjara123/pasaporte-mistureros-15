@@ -179,21 +179,23 @@ body::after {
 .logo-hermandad {
     width: 110px;
 
-    height: 110px;
+    height: auto;
+
+    max-height: 110px;
 
     object-fit: contain;
 
     object-position: center;
 
-    border-radius: 50%;
+    border-radius: 0;
 
-    padding: 4px;
+    padding: 0;
 
-    background: #ffffff;
+    background: transparent;
 
-    border: 2px solid var(--dorado);
+    border: none;
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.38);
+    box-shadow: none;
 }
 
 
@@ -334,16 +336,17 @@ body::after {
 .mensaje-insignia {
     width: 82px;
 
-    height: 82px;
+    height: auto;
+
+    max-height: 82px;
 
     object-fit: contain;
 
-    padding: 6px;
+    padding: 0;
 
-    border-radius: 50%;
+    border-radius: 0;
 
-    background:
-        #fffdf5;
+    background: transparent;
 }
 
 
@@ -629,16 +632,17 @@ body::after {
 .insignia {
     width: 92px;
 
-    height: 92px;
+    height: auto;
+
+    max-height: 92px;
 
     object-fit: contain;
 
-    padding: 6px;
+    padding: 0;
 
-    border-radius: 50%;
+    border-radius: 0;
 
-    background:
-        #fffdf5;
+    background: transparent;
 }
 
 
@@ -1065,7 +1069,9 @@ button {
     .logo-hermandad {
         width: 84px;
 
-        height: 84px;
+        height: auto;
+
+        max-height: 84px;
     }
 
 
@@ -1082,7 +1088,9 @@ button {
     .insignia {
         width: 68px;
 
-        height: 68px;
+        height: auto;
+
+        max-height: 68px;
     }
 
 
@@ -1096,7 +1104,7 @@ button {
     }
 }
 /* =====================================================
-   PASAPORTE MISTURERO - AJUSTES 15.ª CUADRILLA
+   LA RUTA DEL MISTURERO - AJUSTES DÉCIMA QUINTA CUADRILLA
    ===================================================== */
 
 .mensaje-estacion-numero {
@@ -1308,13 +1316,14 @@ button {
 
 .imagen-fallback img {
     width: 150px;
-    height: 150px;
+    height: auto;
+    max-height: 150px;
     object-fit: contain;
     object-position: center;
-    border-radius: 50%;
-    padding: 5px;
-    background: #ffffff;
-    border: 2px solid var(--dorado);
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
     opacity: 0.92;
 }
 
