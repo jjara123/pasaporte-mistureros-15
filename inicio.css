@@ -250,7 +250,7 @@ body::after {
         serif;
 
     line-height:
-        0.92;
+        0.90;
 
     text-align:
         center;
@@ -260,7 +260,7 @@ body::after {
 }
 
 
-/* PRIMERA LÍNEA: LA RUTA */
+/* PRIMERA LÍNEA: LA RUTA DEL */
 
 .hero h1 .titulo-linea-1 {
     display:
@@ -274,17 +274,20 @@ body::after {
 
     font-size:
         clamp(
-            48px,
-            8vw,
-            80px
+            36px,
+            6vw,
+            58px
         );
 
     font-weight:
         700;
+
+    letter-spacing:
+        0.5px;
 }
 
 
-/* SEGUNDA LÍNEA: DEL MISTURERO */
+/* SEGUNDA LÍNEA: MISTURERO */
 
 .hero h1 .titulo-linea-2 {
     display:
@@ -298,9 +301,9 @@ body::after {
 
     font-size:
         clamp(
-            42px,
-            7vw,
-            68px
+            58px,
+            10vw,
+            88px
         );
 
     font-weight:
@@ -895,9 +898,9 @@ body::after {
     .hero h1 .titulo-linea-1 {
         font-size:
             clamp(
-                42px,
-                13vw,
-                56px
+                28px,
+                8.2vw,
+                36px
             );
     }
 
@@ -905,13 +908,13 @@ body::after {
     .hero h1 .titulo-linea-2 {
         font-size:
             clamp(
-                34px,
-                10.5vw,
-                45px
+                50px,
+                15vw,
+                66px
             );
 
         letter-spacing:
-            -0.5px;
+            -0.8px;
     }
 
 

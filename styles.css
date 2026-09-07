@@ -217,34 +217,77 @@ body::after {
 
 .header h1 {
     margin:
-        14px 0 8px;
+        14px auto 8px;
+
+    width:
+        100%;
+
+    max-width:
+        700px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size:
-        clamp(
-            46px,
-            10vw,
-            72px
-        );
+    line-height:
+        0.90;
 
-    line-height: 0.90;
+    text-transform:
+        uppercase;
 
-    text-transform: uppercase;
-
-    color:
-        var(--blanco);
+    text-align:
+        center;
 }
 
 
-.header h1 span {
-    display: block;
+.header h1 .titulo-linea-1 {
+    display:
+        block;
+
+    white-space:
+        nowrap;
+
+    color:
+        var(--blanco);
+
+    font-size:
+        clamp(
+            36px,
+            6vw,
+            58px
+        );
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.5px;
+}
+
+
+.header h1 .titulo-linea-2 {
+    display:
+        block;
+
+    white-space:
+        nowrap;
 
     color:
         var(--dorado-claro);
+
+    font-size:
+        clamp(
+            58px,
+            10vw,
+            88px
+        );
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -1px;
 }
 
 
@@ -1075,8 +1118,26 @@ button {
     }
 
 
-    .header h1 {
-        font-size: 46px;
+    .header h1 .titulo-linea-1 {
+        font-size:
+            clamp(
+                28px,
+                8.2vw,
+                36px
+            );
+    }
+
+
+    .header h1 .titulo-linea-2 {
+        font-size:
+            clamp(
+                50px,
+                15vw,
+                66px
+            );
+
+        letter-spacing:
+            -0.8px;
     }
 
 
