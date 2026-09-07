@@ -251,96 +251,585 @@ function cargarImagen(ruta) {
 async function generarTarjetaLogro() {
     const canvas = document.getElementById("canvas-logro");
     const ctx = canvas.getContext("2d");
-    const ancho = canvas.width;
-    const alto = canvas.height;
 
-    const gradiente = ctx.createLinearGradient(0, 0, 0, alto);
-    gradiente.addColorStop(0, "#210428");
-    gradiente.addColorStop(1, "#1b021f");
+    const ancho = canvas.width;   // 1080
+    const alto = canvas.height;   // 1350
+
+    /* =====================================================
+       FONDO
+       ===================================================== */
+
+    const gradiente = ctx.createLinearGradient(
+        0,
+        0,
+        ancho,
+        alto
+    );
+
+    gradiente.addColorStop(
+        0,
+        "#3d0860"
+    );
+
+    gradiente.addColorStop(
+        0.55,
+        "#2b0447"
+    );
+
+    gradiente.addColorStop(
+        1,
+        "#200333"
+    );
 
     ctx.fillStyle = gradiente;
-    ctx.fillRect(0, 0, ancho, alto);
+
+    ctx.fillRect(
+        0,
+        0,
+        ancho,
+        alto
+    );
+
+
+    /* =====================================================
+       IMAGEN DEL SEÑOR - LADO IZQUIERDO
+       ===================================================== */
 
     try {
-        const senor = await cargarImagen("img/senor-milagros.png");
+
+        const senor =
+            await cargarImagen(
+                "img/senor-milagros.png"
+            );
+
+
         ctx.save();
-        ctx.globalAlpha = 0.10;
-        ctx.drawImage(senor, -140, 80, 700, 1200);
+
+        ctx.globalAlpha =
+            0.42;
+
+
+        /*
+         * Se dibuja grande y hacia el lado izquierdo
+         * para conseguir el efecto del modelo:
+         * imagen procesional integrada con el fondo.
+         */
+
+        const altoImagen =
+            1020;
+
+        const escala =
+            altoImagen /
+            senor.height;
+
+        const anchoImagen =
+            senor.width *
+            escala;
+
+
+        ctx.drawImage(
+            senor,
+            -110,
+            300,
+            anchoImagen,
+            altoImagen
+        );
+
+
+        /*
+         * Degradado oscuro sobre la fotografía para
+         * integrarla con el morado de la tarjeta.
+         */
+
+        const mascara =
+            ctx.createLinearGradient(
+                80,
+                0,
+                650,
+                0
+            );
+
+
+        mascara.addColorStop(
+            0,
+            "rgba(40, 4, 62, 0.05)"
+        );
+
+        mascara.addColorStop(
+            0.62,
+            "rgba(40, 4, 62, 0.42)"
+        );
+
+        mascara.addColorStop(
+            1,
+            "rgba(40, 4, 62, 1)"
+        );
+
+
+        ctx.fillStyle =
+            mascara;
+
+
+        ctx.fillRect(
+            0,
+            240,
+            720,
+            1110
+        );
+
+
         ctx.restore();
+
     } catch {}
 
-    ctx.strokeStyle = "#d7b66a";
-    ctx.lineWidth = 6;
-    ctx.strokeRect(45, 45, ancho - 90, alto - 90);
+
+    /* =====================================================
+       LAUREL DECORATIVO SUAVE - LADO DERECHO
+       ===================================================== */
+
+    ctx.save();
+
+    ctx.globalAlpha =
+        0.11;
+
+    ctx.strokeStyle =
+        "#ffffff";
+
+    ctx.fillStyle =
+        "#ffffff";
+
+    ctx.lineWidth =
+        5;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        935,
+        100
+    );
+
+    ctx.bezierCurveTo(
+        1070,
+        330,
+        1010,
+        760,
+        845,
+        1160
+    );
+
+    ctx.stroke();
+
+
+    for (
+        let i = 0;
+        i < 13;
+        i++
+    ) {
+
+        const t =
+            i /
+            12;
+
+
+        const y =
+            150 +
+            t *
+            950;
+
+
+        const curva =
+            Math.sin(
+                t *
+                Math.PI
+            );
+
+
+        const x =
+            942 +
+            58 *
+            curva;
+
+
+        ctx.save();
+
+        ctx.translate(
+            x,
+            y
+        );
+
+
+        ctx.rotate(
+            -0.48 +
+            t *
+            0.22
+        );
+
+
+        ctx.beginPath();
+
+        ctx.ellipse(
+            0,
+            0,
+            24,
+            58,
+            0,
+            0,
+            Math.PI *
+            2
+        );
+
+        ctx.fill();
+
+
+        ctx.restore();
+    }
+
+
+    ctx.restore();
+
+
+    /* =====================================================
+       MARCO DORADO
+       ===================================================== */
+
+    ctx.strokeStyle =
+        "#e7c451";
+
+    ctx.lineWidth =
+        5;
+
+
+    ctx.strokeRect(
+        38,
+        38,
+        ancho -
+        76,
+        alto -
+        76
+    );
+
+
+    /* =====================================================
+       TÍTULO
+       ===================================================== */
+
+    ctx.textAlign =
+        "center";
+
+    ctx.textBaseline =
+        "alphabetic";
+
+
+    ctx.fillStyle =
+        "#ffffff";
+
+
+    ctx.font =
+        "54px Arial";
+
+
+    ctx.fillText(
+        "LA RUTA DEL",
+        ancho /
+        2,
+        205
+    );
+
+
+    ctx.fillStyle =
+        "#efcf5d";
+
+
+    ctx.font =
+        "88px Arial";
+
+
+    ctx.fillText(
+        "MISTURERO",
+        ancho /
+        2,
+        315
+    );
+
+
+    /* =====================================================
+       INSIGNIA CENTRAL
+       ===================================================== */
 
     try {
-        const insignia = await cargarImagen("img/insignia_15.png");
 
-        const maxAncho = 184;
-        const maxAlto = 184;
-        const escala = Math.min(maxAncho / insignia.width, maxAlto / insignia.height);
-        const imgAncho = insignia.width * escala;
-        const imgAlto = insignia.height * escala;
+        const insignia =
+            await cargarImagen(
+                "img/insignia_15.png"
+            );
+
+
+        const maxAncho =
+            500;
+
+        const maxAlto =
+            500;
+
+
+        const escala =
+            Math.min(
+                maxAncho /
+                insignia.width,
+                maxAlto /
+                insignia.height
+            );
+
+
+        const imgAncho =
+            insignia.width *
+            escala;
+
+        const imgAlto =
+            insignia.height *
+            escala;
+
 
         ctx.drawImage(
             insignia,
-            ancho / 2 - imgAncho / 2,
-            80 + (maxAlto - imgAlto) / 2,
+            ancho /
+            2 -
+            imgAncho /
+            2,
+            370,
             imgAncho,
             imgAlto
         );
+
     } catch {}
 
-    ctx.textAlign = "center";
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 27px Georgia";
-    ctx.font = "bold 23px Georgia";
-    ctx.fillText("HSMN - DÉCIMA QUINTA CUADRILLA", ancho / 2, 300);
-    ctx.fillText("LOS MISTUREROS DEL SEÑOR", ancho / 2, 337);
 
-    ctx.font = "bold 82px Georgia";
-    ctx.fillText("LA RUTA", ancho / 2, 455);
+    /* =====================================================
+       MENSAJE DE VISITA
+       ===================================================== */
 
-    ctx.fillStyle = "#e3bd58";
-    ctx.font = "bold 72px Georgia";
-    ctx.fillText("DEL MISTURERO", ancho / 2, 545);
+    ctx.fillStyle =
+        "#ffffff";
+
+
+    ctx.font =
+        "28px Arial";
+
+
+    ctx.fillText(
+        "HE VISITADO LA OFICINA DE LA DÉCIMA QUINTA CUADRILLA",
+        ancho /
+        2,
+        925
+    );
+
+
+    ctx.fillText(
+        "DE LA HERMANDAD DEL SEÑOR DE LOS MILAGROS DE NAZARENAS",
+        ancho /
+        2,
+        962
+    );
+
+
+    /* =====================================================
+       EXPOSICIÓN
+       ===================================================== */
+
+    ctx.font =
+        "53px Arial";
+
+
+    ctx.fillText(
+        "EXPOSICIÓN NAZARENA 2026",
+        ancho /
+        2,
+        1075
+    );
+
+
+    /* =====================================================
+       DATOS INFERIORES / REDES
+       ===================================================== */
+
+    const yRedes =
+        1195;
+
+
+    /* Facebook */
 
     ctx.beginPath();
-    ctx.arc(ancho / 2, 690, 58, 0, Math.PI * 2);
-    ctx.strokeStyle = "#d7b66a";
-    ctx.lineWidth = 6;
+
+    ctx.arc(
+        455,
+        yRedes,
+        31,
+        0,
+        Math.PI *
+        2
+    );
+
+
+    ctx.fillStyle =
+        "#ffffff";
+
+    ctx.fill();
+
+
+    ctx.fillStyle =
+        "#3b0759";
+
+    ctx.font =
+        "bold 42px Arial";
+
+    ctx.fillText(
+        "f",
+        455,
+        yRedes +
+        15
+    );
+
+
+    ctx.textAlign =
+        "left";
+
+    ctx.fillStyle =
+        "#ffffff";
+
+    ctx.font =
+        "20px Arial";
+
+
+    ctx.fillText(
+        "Décima Quinta Cuadrilla",
+        500,
+        yRedes -
+        12
+    );
+
+
+    ctx.fillText(
+        "Hermandad del Señor de los",
+        500,
+        yRedes +
+        13
+    );
+
+
+    ctx.fillText(
+        "Milagros de Nazarenas",
+        500,
+        yRedes +
+        38
+    );
+
+
+    /* Instagram */
+
+    ctx.beginPath();
+
+    ctx.arc(
+        815,
+        yRedes,
+        31,
+        0,
+        Math.PI *
+        2
+    );
+
+
+    ctx.fillStyle =
+        "#ffffff";
+
+    ctx.fill();
+
+
+    ctx.strokeStyle =
+        "#3b0759";
+
+    ctx.lineWidth =
+        4;
+
+
+    ctx.strokeRect(
+        799,
+        yRedes -
+        16,
+        32,
+        32
+    );
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        815,
+        yRedes,
+        8,
+        0,
+        Math.PI *
+        2
+    );
+
     ctx.stroke();
 
-    ctx.fillStyle = "#d7b66a";
-    ctx.font = "bold 76px Arial";
-    ctx.fillText("✓", ancho / 2, 718);
 
-    ctx.font = "bold 115px Georgia";
-    ctx.fillText("4 / 4", ancho / 2, 875);
+    ctx.beginPath();
 
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 38px Georgia";
-    ctx.fillText("¡RECORRIDO COMPLETADO!", ancho / 2, 955);
+    ctx.arc(
+        824,
+        yRedes -
+        9,
+        2.5,
+        0,
+        Math.PI *
+        2
+    );
 
-    ctx.font = "29px Georgia";
-    ctx.fillText("Has completado los cuatro puntos", ancho / 2, 1050);
-    ctx.fillText("de la exposición de la 15.ª Cuadrilla.", ancho / 2, 1090);
+    ctx.fillStyle =
+        "#3b0759";
 
-    ctx.fillStyle = "#d7b66a";
-    ctx.font = "bold 25px Georgia";
-    ctx.fillText("FE · TRADICIÓN · SERVICIO", ancho / 2, 1150);
+    ctx.fill();
 
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 22px Georgia";
-    ctx.fillText("#RutaDelMisturero", ancho / 2, 1230);
 
-    ctx.fillStyle = "#d7b66a";
-    ctx.font = "bold 25px Georgia";
-    ctx.fillText("2026", ancho / 2, 1275);
+    ctx.fillStyle =
+        "#ffffff";
 
-    document.getElementById("imagen-logro").src =
-        canvas.toDataURL("image/png");
+    ctx.textAlign =
+        "left";
+
+    ctx.font =
+        "20px Arial";
+
+
+    ctx.fillText(
+        "Décima Quinta",
+        860,
+        yRedes -
+        5
+    );
+
+
+    ctx.fillText(
+        "Cuadrilla HSMN",
+        860,
+        yRedes +
+        23
+    );
+
+
+    /* =====================================================
+       ACTUALIZAR PREVISUALIZACIÓN
+       ===================================================== */
+
+    document.getElementById(
+        "imagen-logro"
+    ).src =
+        canvas.toDataURL(
+            "image/png"
+        );
 }
+
 
 /* =====================================================
    ESCÁNER QR
@@ -480,7 +969,9 @@ async function compartirRecorrido() {
         ) {
             await navigator.share({
                 files: [archivo],
-                text: "¡Completé La ruta del Misturero de la Décima Quinta Cuadrilla!"
+                text: "¡Completé La Ruta del Misturero! 💜\n" +
+                    "Fe · Tradición · Servicio\n" +
+                    "@quincenazarenas"
             });
             return;
         }
