@@ -99,6 +99,14 @@ function obtenerEstacionURL() {
 }
 
 function registrarEstacionDesdeURL() {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("completar") === "todo") {
+        progreso = [1, 2, 3, 4];
+        guardarProgreso();
+        return;
+    }
+
     const estacion = obtenerEstacionURL();
 
     if (!estacion) {
@@ -876,9 +884,9 @@ async function codigoDetectado(textoQR) {
 
     scannerProcesando = true;
 
-    const estacion = obtenerEstacionDesdeQR(textoQR);
+    const resultado = obtenerEstacionDesdeQR(textoQR);
 
-    if (!estacion) {
+    if (!resultado) {
         mostrarMensajeScanner(
             "Este QR no pertenece a La ruta del Misturero.",
             true
@@ -888,7 +896,13 @@ async function codigoDetectado(textoQR) {
     }
 
     await detenerScanner();
-    window.location.href = `estacion.html?estacion=${estacion}`;
+
+    if (resultado === "todo") {
+        window.location.href = "pasaporte.html?completar=todo";
+        return;
+    }
+
+    window.location.href = `estacion.html?estacion=${resultado}`;
 }
 
 function obtenerEstacionDesdeQR(textoQR) {
@@ -897,6 +911,13 @@ function obtenerEstacionDesdeQR(textoQR) {
 
         if (url.hostname !== window.location.hostname) {
             return null;
+        }
+
+        if (
+            url.pathname.endsWith("/pasaporte.html") &&
+            url.searchParams.get("completar") === "todo"
+        ) {
+            return "todo";
         }
 
         if (!url.pathname.endsWith("/estacion.html")) {
@@ -969,9 +990,7 @@ async function compartirRecorrido() {
         ) {
             await navigator.share({
                 files: [archivo],
-                text: "¡Completé La Ruta del Misturero! 💜\n" +
-                    "Fe · Tradición · Servicio\n" +
-                    "@quincenazarenas"
+                text: "¡Completé La ruta del Misturero de la Décima Quinta Cuadrilla!"
             });
             return;
         }
